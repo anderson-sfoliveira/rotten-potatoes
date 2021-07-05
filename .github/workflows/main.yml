@@ -24,6 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - name: Docker Login
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PWD }}
       - name: Build and push Docker images
         uses: docker/build-push-action@v2.6.1
         with:
@@ -32,4 +36,4 @@ jobs:
           push: true
           tags:
             brlsistemas/rotten-patatoes:latest
-            brlsistemas/rotten-patatoes:$(( github.run_number ))
+            brlsistemas/rotten-patatoes:${{ github.run_number }}
