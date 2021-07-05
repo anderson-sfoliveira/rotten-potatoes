@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: movies
-          image: brlsistemas/rotten-potatoes:v2
+          image: brlsistemas/rotten-potatoes
           ports:
             - containerPort: 5000 # porta configurada no Dockerfile
           env: # informações do arquivo app.py
